@@ -8,13 +8,15 @@ body {
 h1 {
   font-size: 50px;
 }
+ul {
+  margin-bottom: 50px;
+}
 .text-inline {
   display: inline;
 }
 .letter {
+  font-family: monospace;
   font-size: 40px;
-  width:50%;
-  height: 0;
   background-color: #0FC9E7;
   color: white;
   padding: 15px 25px;
@@ -22,4 +24,11 @@ h1 {
   border-radius: 5px;
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
-
+a {
+  text-decoration: none;
+}
+.input {
+  height: 50px;
+  color: blue;
+  border-radius: 5px;
+}

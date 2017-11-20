@@ -21,7 +21,7 @@ class GamesController < ApplicationController
       @result = "Congratulations! #{@word} is a valid English word!"
       @score = compute_score(@word, Time.now - @start_time)
     end
-    session[:score].nil? ? session[:score] = @score : session[:score] += @score
+    session[:score].nil? ? session[:score] = @score.round(1) : session[:score] += @score.round(1)
   end
 
   private
@@ -34,11 +34,11 @@ class GamesController < ApplicationController
   end
 
   def included?(guess, grid)
-    guess.chars.all? { |letter| guess.count(letter) <= grid.count(letter) }
+    return guess.chars.all? { |letter| guess.count(letter) <= grid.count(letter) }
   end
 
   def compute_score(attempt, time_taken)
-    time_taken > 60.0 ? 0 : (attempt.size * (1.0 - time_taken / 60.0)).round(1)
+    return time_taken > 60.0 ? 0 : (attempt.size * (1.0 - time_taken / 60.0)).round(1)
   end
 
 end
